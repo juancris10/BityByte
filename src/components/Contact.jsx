@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Send, CheckCircle2, AlertCircle, Loader2, MessageCircle } from 'lucide-react'
+import { Mail, Send, CheckCircle2, AlertCircle, Loader2, MessageCircle, Instagram } from 'lucide-react'
 import emailjs from '@emailjs/browser'
 
 const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID
@@ -67,7 +67,7 @@ export default function Contact() {
               ¿Cómo querés contactarnos?
             </h2>
             <p className="text-slate-500 text-lg">
-              Elegí la vía que te resulte más cómoda. Te respondemos en el día.
+              Elegí la vía que te resulte más cómoda.
             </p>
           </motion.div>
 
@@ -77,7 +77,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="grid sm:grid-cols-2 gap-4 mb-10"
+            className="grid sm:grid-cols-2 gap-4 mb-4"
           >
             {/* WhatsApp */}
             <a
@@ -111,6 +111,21 @@ export default function Contact() {
               </div>
             </a>
           </motion.div>
+
+          {/* Instagram — canal secundario */}
+          <motion.a
+            href="https://www.instagram.com/somosbitbyte/"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.18 }}
+            className="flex items-center justify-center gap-2.5 py-3 px-5 rounded-xl border border-pink-200 text-pink-500 hover:bg-pink-50 hover:border-pink-300 transition-colors text-sm font-semibold mb-8"
+          >
+            <Instagram size={17} />
+            Seguinos en Instagram · @somosbitbyte
+          </motion.a>
 
           {/* Divisor */}
           <motion.div

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, ChevronDown } from 'lucide-react'
+import { ArrowRight, ChevronDown, MessageCircle, Instagram } from 'lucide-react'
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -24,7 +24,7 @@ function CircuitBg() {
           <circle cx="20" cy="40" r="2" fill="#0283E7" />
         </pattern>
       </defs>
-      <rect width="100%" height="100%" fill="url(#circuit)" opacity="0.12" />
+      <rect width="100%" height="100%" fill="url(#circuit)" opacity="0.20" />
     </svg>
   )
 }
@@ -184,7 +184,7 @@ export default function Hero() {
                 href="#contacto"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-naranja-ambar text-white font-semibold hover:bg-[#e26200] transition-colors shadow-lg shadow-orange-900/40"
               >
-                Quiero una solución para mi proyecto
+                Quiero empezar
                 <ArrowRight size={18} />
               </a>
               <a
@@ -195,23 +195,30 @@ export default function Hero() {
               </a>
             </motion.div>
 
-            {/* Mini-stats */}
+            {/* Quick contact strip */}
             <motion.div
               {...fadeUp(0.45)}
-              className="flex flex-wrap gap-x-8 gap-y-3 mt-8 pt-8 border-t border-white/10"
+              className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-8 pt-8 border-t border-white/10"
             >
-              {[
-                { val: '100%', label: 'código propio, sin plantillas' },
-                { val: '24/7', label: 'soporte disponible' },
-                { val: 'A medida', label: 'cada solución es única' },
-              ].map((stat) => (
-                <div key={stat.label} className="flex flex-col">
-                  <span className="font-display font-extrabold text-xl text-white leading-none">
-                    {stat.val}
-                  </span>
-                  <span className="text-blue-300/50 text-xs mt-0.5">{stat.label}</span>
-                </div>
-              ))}
+              <a
+                href="https://wa.me/5493705249466"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-white/60 hover:text-white text-sm font-medium transition-colors"
+              >
+                <MessageCircle size={16} />
+                WhatsApp directo
+              </a>
+              <span className="text-white/20 hidden sm:block">|</span>
+              <a
+                href="https://www.instagram.com/somosbitbyte/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-white/60 hover:text-white text-sm font-medium transition-colors"
+              >
+                <Instagram size={16} />
+                @somosbitbyte
+              </a>
             </motion.div>
           </div>
 

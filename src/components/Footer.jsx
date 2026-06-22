@@ -1,6 +1,9 @@
+import { Instagram } from 'lucide-react'
+
 const links = [
   { label: 'Servicios', href: '#servicios' },
   { label: '¿Por qué nosotros?', href: '#por-que-nosotros' },
+  { label: 'Cómo trabajamos', href: '#como-trabajamos' },
   { label: 'Contacto', href: '#contacto' },
 ]
 
@@ -26,6 +29,15 @@ export default function Footer() {
             <p className="text-blue-200/70 text-sm leading-relaxed max-w-xs">
               Soluciones tecnológicas integrales para tu empresa.
             </p>
+            <a
+              href="https://www.instagram.com/somosbitbyte/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-5 text-blue-300/60 hover:text-white text-sm transition-colors"
+            >
+              <Instagram size={15} />
+              @somosbitbyte
+            </a>
           </div>
 
           {/* Links */}

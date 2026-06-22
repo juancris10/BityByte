@@ -20,11 +20,16 @@ export default function PromoBanner() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          {/* Badge */}
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-naranja-ambar text-naranja-ambar font-bold text-sm mb-8">
-            <Gift size={16} />
-            OFERTA VIGENTE
-          </span>
+          {/* Badges */}
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-naranja-ambar text-naranja-ambar font-bold text-sm">
+              <Gift size={16} />
+              OFERTA VIGENTE
+            </span>
+            <span className="inline-flex items-center px-3 py-2 rounded-full bg-naranja-ambar/15 border border-naranja-ambar/40 text-naranja-ambar/90 text-xs font-semibold tracking-wide">
+              Hasta el 31 de julio
+            </span>
+          </div>
 
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white mb-6 leading-tight">
             Nuestros clientes ya están creciendo.{' '}
@@ -32,8 +37,9 @@ export default function PromoBanner() {
           </h2>
 
           <p className="text-blue-200 text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-            Para los próximos proyectos que cierren con nosotros: soporte y mantenimiento mensual
-            <strong className="text-white"> gratis durante los primeros 3 meses</strong>.
+            Cerrá tu proyecto con nosotros antes del 31 de julio y accedés a soporte y
+            mantenimiento mensual{' '}
+            <strong className="text-white">gratis durante los primeros 3 meses</strong>.
             Trabajamos con emprendedores, comercios, profesionales y organizaciones de todo tipo.
             Sin rodeos, sin letra chica.
           </p>

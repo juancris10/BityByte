@@ -6,17 +6,31 @@ const links = [
   { label: 'Servicios', href: '#servicios' },
   { label: '¿Por qué nosotros?', href: '#por-que-nosotros' },
   { label: 'Cómo trabajamos', href: '#como-trabajamos' },
-  { label: 'Contacto', href: '#contacto' },
 ]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 10)
     window.addEventListener('scroll', handler)
     return () => window.removeEventListener('scroll', handler)
+  }, [])
+
+  useEffect(() => {
+    const observers = links.map(({ href }) => {
+      const el = document.getElementById(href.slice(1))
+      if (!el) return null
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveSection(href.slice(1)) },
+        { rootMargin: '-80px 0px -65% 0px', threshold: 0 }
+      )
+      obs.observe(el)
+      return obs
+    })
+    return () => observers.forEach((o) => o?.disconnect())
   }, [])
 
   return (
@@ -37,14 +51,24 @@ export default function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-texto-oscuro hover:text-azul-electrico transition-colors whitespace-nowrap"
+              className={`text-sm font-medium transition-colors whitespace-nowrap ${
+                activeSection === l.href.slice(1)
+                  ? 'text-azul-electrico'
+                  : 'text-texto-oscuro hover:text-azul-electrico'
+              }`}
             >
               {l.label}
             </a>
           ))}
         </nav>
 
-
+        {/* CTA desktop */}
+        <a
+          href="#contacto"
+          className="hidden lg:inline-flex items-center px-4 py-2 rounded-lg bg-naranja-ambar text-white text-sm font-semibold hover:bg-orange-600 transition-colors shadow-sm shadow-orange-100 whitespace-nowrap"
+        >
+          Contactanos
+        </a>
 
         {/* Hamburger — visible hasta lg */}
         <button
@@ -69,7 +93,13 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-
+          <a
+            href="#contacto"
+            onClick={() => setOpen(false)}
+            className="mt-3 flex items-center justify-center px-4 py-3 rounded-lg bg-naranja-ambar text-white text-sm font-bold hover:bg-orange-600 transition-colors"
+          >
+            Contactanos
+          </a>
         </div>
       )}
     </header>

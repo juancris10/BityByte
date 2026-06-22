@@ -1,7 +1,7 @@
 export default function Logo({ className = '' }) {
   return (
     <img
-      src="/LOGOBIT.svg"
+      src="/logo/LOGOBIT.svg"
       alt="Bit&Byte"
       className={className}
       draggable={false}

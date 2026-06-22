@@ -17,9 +17,9 @@ export default function App() {
         <Hero />
         <Services />
         <WhyUs />
-        <PromoBanner />
         <HowWeWork />
         <Team />
+        <PromoBanner />
         <Contact />
       </main>
       <Footer />
